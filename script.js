@@ -46,13 +46,18 @@ const allCourses = [
       function buttonClicked(event) {
         // wenn nichts mehr zur auswahl steht, dann Meldung!
         if (coursesLeft.length == 0) {
+            buttonLinks.removeEventListener("click",buttonClicked);
+            buttonRechts.removeEventListener("click",buttonClicked);
+      
             // console.log("ENDE!")
             if (event.target.id == "links") {
                 buttonRechts.innerText = "← Gewinner";
+                buttonLinks.style.backgroundColor = "#AED581";
                 return;
             }
             else {
                 buttonLinks.innerText = "Gewinner →";
+                buttonRechts.style.backgroundColor = "#AED581";
                 return;
 
             }
